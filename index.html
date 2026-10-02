@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workspace Tasks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="workspace-wrapper">
+        <aside class="sidebar-card">
+            <div class="brand">
+                <div class="brand-icon"><i class="fa-solid fa-check-double"></i></div>
+                <div>
+                    <h1>Tasks</h1>
+                    <span>Personal Workspace</span>
+                </div>
+            </div>
+
+            <form id="todo-form" class="task-form">
+                <div class="form-control">
+                    <label for="todo-input">New Task</label>
+                    <input type="text" id="todo-input" placeholder="What needs to be done?" required>
+                </div>
+                <div class="form-control">
+                    <label for="priority-select">Priority Level</label>
+                    <select id="priority-select">
+                        <option value="low">Low Priority</option>
+                        <option value="medium" selected>Normal Priority</option>
+                        <option value="high">Urgent</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-create"><i class="fa-solid fa-plus"></i> Add Task</button>
+            </form>
+        </aside>
+
+        <main class="content-card">
+            <div class="toolbar">
+                <div class="search-field">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="search-input" placeholder="Filter tasks...">
+                </div>
+                <div class="segmented-control">
+                    <button class="segment-btn active" data-filter="all">All</button>
+                    <button class="segment-btn" data-filter="pending">Active</button>
+                    <button class="segment-btn" data-filter="completed">Done</button>
+                </div>
+            </div>
+
+            <div class="list-container">
+                <ul id="todo-list" class="task-list"></ul>
+            </div>
+
+            <div class="card-footer">
+                <div id="task-counter" class="status-pill">0 items left</div>
+                <div class="footer-btns">
+                    <button id="sync-btn" class="btn-outline"><i class="fa-solid fa-rotate"></i> Cloud Sync</button>
+                    <button id="clear-completed" class="btn-danger-link">Clear Done</button>
+                </div>
+            </div>
+        </main>
+        
+        <div id="toast" class="toast-notification hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
